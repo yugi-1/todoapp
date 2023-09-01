@@ -19,28 +19,40 @@
             <div class="card-header">
                 list name
               
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Category
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <a class="dropdown-item" href="#">Action</a>
-                    </div>
-                  </div>
+                
               </div>
             <div class="card-body">
                 <div class="mb-3">
                     <label for="entertodo" class="form-label">Create To Do</label>
-                    <input type="text" class="form-control" id="floatingInput" placeholder="create a task">
-                  </div>
-                <button type="button" class="btn btn-primary">Create</button>
+                    <div class="input-group">
+                        <input type="text" id="mainValue" class="form-control" aria-label="Text input with dropdown button">
+                        <div class="input-group-append">
+                          <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Category</button>
+                          <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Action</a>
+                            
+                        </div>
+                      </div>
+                    <label for="entertodo" class="form-label">Date</label>
+                    <input type="date" value="2017-06-01" id="dateValue" />
 
-                <ul class="list-group">
+                    <input type="text" id="categoryValue" class="form-control" aria-label="Text input with dropdown button">
+                    <div class="dropdown">
+                       
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <a class="dropdown-item" href="#">Action</a>
+                        </div>
+                      </div>
+                  </div>
+                <button type="button" id="mainCreate" class="btn btn-primary">Create</button>
+
+                <ul class="list-group" id="mainList">
                     
-                    <li class="list-group-item">task
+                    <!-- <li class="list-group-item">task
                         <button type="button" class="btn btn-info">Edit</button>
                         <button type="button" class="btn btn-danger">Delete</button>
-                    </li>
+                    </li> -->
+
                   </ul>
             </div>
           </div>
