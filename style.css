@@ -1,3 +1,47 @@
+h1 {
+   font-family: 'Jost', sans-serif;
+   /* font-family: 'Preahvihear', sans-serif; */
+   display: flex;
+   justify-content: center;
+   margin-top: 50px;
+   margin-bottom: 50px;
+   
+}
+body {
+   font-family: 'Preahvihear', sans-serif;
+   color: #0A1128;
+   background-color: #EEE5E9;
+
+}
 .container {
    display: flex;
+   justify-content: center;
+}
+
+.card-header {
+   font-family: 'Jost', sans-serif;
+   background-color: #0A1128;
+   color: #EEE5E9;
+   display: flex;
+   justify-content: center;
+   font-size: 30px;
+}
+
+.card-body {
+   margin: 20px;
+   width: 700px;
+}
+
+input {
+   padding: 5px;
+   margin-right: 10px;
+
+}
+
+#dateLabel {
+  margin-left: 500px;
+}
+#dateValue {
+  margin-left: 10px;
+  text-decoration: none;
 }
