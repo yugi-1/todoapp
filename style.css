@@ -1,6 +1,6 @@
 h1 {
    font-family: 'Jost', sans-serif;
-   /* font-family: 'Preahvihear', sans-serif; */
+   font-family: 'Preahvihear', sans-serif;
    display: flex;
    justify-content: center;
    margin-top: 50px;
@@ -11,6 +11,7 @@ body {
    font-family: 'Preahvihear', sans-serif;
    color: #0A1128;
    background-color: #EEE5E9;
+
 
 }
 .container {
@@ -35,13 +36,63 @@ body {
 input {
    padding: 5px;
    margin-right: 10px;
-
+   display: block;
 }
+#dateValue:hover {
+   cursor: pointer;
+}
+#mainCreate:hover {
+   cursor: pointer;
+   background-color: lavender;
+   border-color: lavender;
+   color: #0A1128;
+}
+#mainCreate, #mainClear {
+   color: #EEE5E9;
+   background-color: #0A1128;
+   border-color: #0A1128;
+}
+/* #mainClear {
 
+} */
 #dateLabel {
   margin-left: 500px;
 }
 #dateValue {
   margin-left: 10px;
   text-decoration: none;
+}
+button {
+   margin-top: 15px;
+   margin-bottom: 15px;
+}
+/* .inputvalone {
+   padding-right: 10px;
+} */
+.inputvalthree {
+   color: #E7C8DD;
+   display: flex;
+   justify-content: space-between;
+}
+.inputvaltwo {
+   color: #C7B8EA;
+   /* padding-right: 50px; */
+}
+/* .item2, .end {
+   
+} */
+.closeBtn {
+   color: #0A1128;
+   padding-left: 10px;
+   display: flex;
+   justify-content: end;
+   font-size: 20px;
+}
+.closeBtn:hover {
+   cursor: pointer;
+   color: #EF767A;
+   transition-duration: 0.5s;
+}
+#deleted {
+   display: none;
 }
