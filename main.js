@@ -7,12 +7,7 @@
 
 const todos=[];
 const deleted =[];
-
-
 let placement = document.getElementById('mainList');
-
-
-
 
 function addTodo() {
     let inputVal = document.getElementById('mainValue').value;
@@ -30,12 +25,9 @@ function addTodo() {
         category: inputValThree
     }
 
-
     todos.push(createData);
-    console.log(todos);
 
  
-    let listGroup = document.getElementsByClassName(`list-group-item`);
     let close = document.getElementsByClassName(`closeBtn`);
     for (let i = 0; i < close.length; i++) {
         close[i].onclick = function() {
@@ -45,8 +37,6 @@ function addTodo() {
             
             let selector = todos[i];
             todos.splice(selector);
-            console.log(selector)
-            console.log(todos);
             // let index = todos.indexOf(parent);
             // let x = todos.splice(index, 1);
             // console.log(`${todos}`);
@@ -57,18 +47,13 @@ function addTodo() {
           
 
     }
-
-
-
 }
 
 function clearAll() {
     let c = placement.children;
     for (i = 0; i < c.length; i++) {
         c[i].setAttribute( "id","deleted");
-        console.log(c);
     }
-
   }
 
 document.getElementById('mainClear').addEventListener("click", clearAll);
@@ -76,14 +61,17 @@ document.getElementById('mainCreate').addEventListener("click", addTodo);
 
 //counter
 let count = 0;
-function counter() {
-    let grab = document.getElementsByTagName('LI');
-    for (i = 0; i < grab.length; i++) {
-        // if (grab[i].style['display'] != 'none') {
-        //         console.log('yipee'); there shouldnt be yipees when i clear all
-        //     }
-    }
 
-    
+function counter() {
+    let listGroup = document.getElementsByClassName(`list-group-item`);
+    for (i = 0; i < listGroup.length; i++) {
+        if(window.getComputedStyle(listGroup[i]).display != "none"){
+            count++;
+            console.log(count);
+        }
+    }
 }
-document.getElementById('counting').addEventListener("click", counter);
+counter();
+document.getElementById('counting').innerHTML = `${count}`;
+console.log(count);
+
