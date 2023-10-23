@@ -37,6 +37,9 @@ function addTodo() {
             
             let selector = todos[i];
             todos.splice(selector);
+
+            count--;
+            updateCounter();
             // let index = todos.indexOf(parent);
             // let x = todos.splice(index, 1);
             // console.log(`${todos}`);
@@ -77,12 +80,3 @@ document.getElementById('mainCreate').addEventListener("click", () => {
     updateCounter();
     console.log(count);
 });
-
-function deleteTask() {
-    document.getElementsByClassName(`closeBtn`).addEventListener('click', () => {
-        count--;
-        updateCounter();
-        console.log(count);
-    });
-};
-
