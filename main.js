@@ -50,9 +50,12 @@ function addTodo() {
 }
 
 function clearAll() {
+    count = 0;
+    updateCounter();
     let c = placement.children;
     for (i = 0; i < c.length; i++) {
         c[i].setAttribute( "id","deleted");
+
     }
   }
 
@@ -73,7 +76,13 @@ document.getElementById('mainCreate').addEventListener("click", () => {
     count++;
     updateCounter();
     console.log(count);
-})
+});
 
-
+function deleteTask() {
+    document.getElementsByClassName(`closeBtn`).addEventListener('click', () => {
+        count--;
+        updateCounter();
+        console.log(count);
+    });
+};
 
