@@ -62,19 +62,6 @@ document.getElementById('mainCreate').addEventListener("click", addTodo);
 //counter
 
 
-// function counter() {
-
-//     let listGroup = document.getElementsByClassName(`list-group-item`);
-//     for (i = 0; i < listGroup.length; i++) {
-//         if(window.getComputedStyle(listGroup[i]).display != "none"){
-//             count++;
-//             console.log(count);
-//         }
-//     }
-// }
-// counter();
-
-
 
 let count = 0;
 
