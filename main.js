@@ -60,18 +60,33 @@ document.getElementById('mainClear').addEventListener("click", clearAll);
 document.getElementById('mainCreate').addEventListener("click", addTodo);
 
 //counter
+
+
+// function counter() {
+
+//     let listGroup = document.getElementsByClassName(`list-group-item`);
+//     for (i = 0; i < listGroup.length; i++) {
+//         if(window.getComputedStyle(listGroup[i]).display != "none"){
+//             count++;
+//             console.log(count);
+//         }
+//     }
+// }
+// counter();
+
+
+
 let count = 0;
 
-function counter() {
-    let listGroup = document.getElementsByClassName(`list-group-item`);
-    for (i = 0; i < listGroup.length; i++) {
-        if(window.getComputedStyle(listGroup[i]).display != "none"){
-            count++;
-            console.log(count);
-        }
-    }
-}
-counter();
-document.getElementById('counting').innerHTML = `${count}`;
-console.log(count);
+function updateCounter() {
+    document.getElementById('counting').innerHTML = count;
+};
+
+document.getElementById('mainCreate').addEventListener("click", () => {
+    count++;
+    updateCounter();
+    console.log(count);
+})
+
+
 
