@@ -50,7 +50,9 @@ function addTodo() {
 function clearAll() {
     count = 0;
     deleted.push(...todos);
+    todos.length = 0;
     console.log(deleted);
+    console.log(todos);
     updateCounter();
     let c = placement.children;
     for (i = 0; i < c.length; i++) {
