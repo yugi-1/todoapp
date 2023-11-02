@@ -26,24 +26,19 @@ function addTodo() {
     }
 
     todos.push(createData);
-
+    console.log(todos);
  
     let close = document.getElementsByClassName(`closeBtn`);
     for (let i = 0; i < close.length; i++) {
         close[i].onclick = function() {
             let parent = this.parentElement;
             parent.style.display = "none";
-
-            
-            let selector = todos[i];
-            todos.splice(selector);
+          
+            // let selector = this.todos;
+            // todos.splice(selector);
 
             count--;
             updateCounter();
-            // let index = todos.indexOf(parent);
-            // let x = todos.splice(index, 1);
-            // console.log(`${todos}`);
-            // console.log(`${x}`)
           }
          
         
@@ -54,12 +49,15 @@ function addTodo() {
 
 function clearAll() {
     count = 0;
+    deleted.push(...todos);
+    console.log(deleted);
     updateCounter();
     let c = placement.children;
     for (i = 0; i < c.length; i++) {
         c[i].setAttribute( "id","deleted");
-
+        
     }
+ 
   }
 
 document.getElementById('mainClear').addEventListener("click", clearAll);
