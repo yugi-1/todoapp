@@ -29,29 +29,55 @@ function addTodo() {
     console.log(todos);
  
     let close = document.getElementsByClassName(`closeBtn`);
-    for (let i = 0; i < close.length; i++) {
+
+    // for (let i = 0; i < todos.length; i++ ) {
+       for (let i = 0; i < close.length; i++) {   
         close[i].onclick = function() {
             let parent = this.parentElement;
             parent.style.display = "none";
-          
-            // let selector = this.todos;
-            // todos.splice(selector);
+
+            console.log(i);
+    
+            console.log(todos);
+            // console.log(todos.length);
+            // console.log(todos[i]);
+            // console.log([i]);
+
 
             count--;
             updateCounter();
-          }
-         
-        
-          
-
+          }   
+            
+ 
     }
+    // }
+ 
+    // for (let i = 0; i < close.length; i++) {   
+    //     close[i].onclick = function() {
+    //         let parent = this.parentElement;
+    //         parent.style.display = "none";
+
+    //         // console.log(todos.length);
+    //         // console.log(todos[i]);
+    //         // console.log([i]);
+    //         console.log(todos);
+
+    //         count--;
+    //         updateCounter();
+    //       }   
+            
+ 
+    // }
 }
+
+
+
 
 function clearAll() {
     count = 0;
     deleted.push(...todos);
     todos.length = 0;
-    console.log(deleted);
+    // console.log(deleted);
     console.log(todos);
     updateCounter();
     let c = placement.children;

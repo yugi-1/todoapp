@@ -96,3 +96,6 @@ button {
 #deleted {
    display: none;
 }
+.counterdis {
+   padding-left: 50px;
+}
