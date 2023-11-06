@@ -15,9 +15,11 @@ function addTodo() {
     let inputValThree = document.getElementById('categoryValue').value;
     let create = document.createElement("LI"); 
     create.setAttribute( "class","list-group-item");
-    create.innerHTML = `<span contenteditable='true' class="inputvalone">${inputVal}</span> ` + `<span class="inputvalthree" contenteditable='true'>${inputValThree}<span class="inputvaltwo" contenteditable='true'>${inputValTwo}</span></span>` + ` <span class='closeBtn'>\u00D7</span>`;
+    create.innerHTML = `<span contenteditable='true' class="inputvalone">${inputVal}</span> ` + `<span class="inputvalthree" contenteditable='true'>${inputValThree}<span class="inputvaltwo" contenteditable='true'>${inputValTwo}</span></span>` + ` <span class='closeBtn'>\u00D7</span>` + `<span class="editBtn">Edit</span>`;
 //   placement.style.display = 'inline';
     placement.appendChild(create); 
+
+   
 
     const createData = {
         name: inputVal,
@@ -28,6 +30,7 @@ function addTodo() {
     todos.push(createData);
     console.log(todos);
  
+
     let close = document.getElementsByClassName(`closeBtn`);
 
     // for (let i = 0; i < todos.length; i++ ) {
@@ -68,8 +71,9 @@ function addTodo() {
             
  
     // }
-}
 
+        
+}
 
 
 

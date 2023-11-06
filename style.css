@@ -99,3 +99,12 @@ button {
 .counterdis {
    padding-left: 50px;
 }
+.editBtn {
+   color: lightgray;
+  
+}
+.editBtn:hover {
+   color: black;
+   transition: 0.5s;
+   cursor: pointer;
+}
