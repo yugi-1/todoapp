@@ -5,7 +5,7 @@
 //     id: 0
 // };
 
-const todos=[];
+let todos=[];
 const deleted =[];
 let placement = document.getElementById('mainList');
 
@@ -17,9 +17,7 @@ function addTodo() {
     create.setAttribute( "class","list-group-item");
     create.innerHTML = `<span contenteditable='true' class="inputvalone">${inputVal}</span> ` + `<span class="inputvalthree" contenteditable='true'>${inputValThree}<span class="inputvaltwo" contenteditable='true'>${inputValTwo}</span></span>` + ` <span class='closeBtn'>\u00D7</span>` + `<span class="editBtn">Edit</span>`;
 //   placement.style.display = 'inline';
-    placement.appendChild(create); 
-
-   
+    placement.appendChild(create);   
 
     const createData = {
         name: inputVal,
@@ -30,52 +28,22 @@ function addTodo() {
     todos.push(createData);
     console.log(todos);
  
-
     let close = document.getElementsByClassName(`closeBtn`);
-
-    // for (let i = 0; i < todos.length; i++ ) {
-       for (let i = 0; i < close.length; i++) {   
+       for (let i = 0; i < close.length; i++) { 
         close[i].onclick = function() {
             let parent = this.parentElement;
             parent.style.display = "none";
-
-            console.log(i);
-    
+            
+            todos.splice(todos[i], 1);
+            todos.length - 1;
             console.log(todos);
-            // console.log(todos.length);
-            // console.log(todos[i]);
-            // console.log([i]);
 
 
             count--;
             updateCounter();
-          }   
-            
- 
+          }    
     }
-    // }
- 
-    // for (let i = 0; i < close.length; i++) {   
-    //     close[i].onclick = function() {
-    //         let parent = this.parentElement;
-    //         parent.style.display = "none";
-
-    //         // console.log(todos.length);
-    //         // console.log(todos[i]);
-    //         // console.log([i]);
-    //         console.log(todos);
-
-    //         count--;
-    //         updateCounter();
-    //       }   
-            
- 
-    // }
-
-        
 }
-
-
 
 function clearAll() {
     count = 0;
@@ -86,18 +54,14 @@ function clearAll() {
     updateCounter();
     let c = placement.children;
     for (i = 0; i < c.length; i++) {
-        c[i].setAttribute( "id","deleted");
-        
+        c[i].setAttribute( "id","deleted");  
     }
- 
   }
 
 document.getElementById('mainClear').addEventListener("click", clearAll);
 document.getElementById('mainCreate').addEventListener("click", addTodo);
 
 //counter
-
-
 
 let count = 0;
 
