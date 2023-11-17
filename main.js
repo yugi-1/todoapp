@@ -32,15 +32,14 @@ function addTodo() {
             updateCounter();
             deleteI();
           } 
+           //find index of this item you click on
+          let thisObj = todos[i];
 
           function deleteI() {
-            //find index of this item you click on
-            const thisObj = todos[i];
             //onclick add property to object (deleted: true)
-            thisObj.deleted = true;
+            thisObj['deleted'] = true;
             //filter deleted objects from array
             todos = todos.filter((todo) => todo.deleted != true);
-
             console.log(todos);
         }
     }
