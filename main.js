@@ -1,10 +1,3 @@
-// const todos = {
-//     task: "taskname",
-//     category: "categoryname",
-//     date: "dateadded",
-//     id: 0
-// };
-
 let todos=[];
 const deleted =[];
 let placement = document.getElementById('mainList');
@@ -16,7 +9,7 @@ function addTodo() {
     let create = document.createElement("LI"); 
     create.setAttribute( "class","list-group-item");
     create.innerHTML = `<span contenteditable='true' class="inputvalone">${inputVal}</span> ` + `<span class="inputvalthree" contenteditable='true'>${inputValThree}<span class="inputvaltwo" contenteditable='true'>${inputValTwo}</span></span>` + ` <span class='closeBtn'>\u00D7</span>` + `<span class="editBtn">Edit</span>`;
-//   placement.style.display = 'inline';
+//  placement.style.display = 'inline';
     placement.appendChild(create);   
 
     const createData = {
@@ -28,20 +21,28 @@ function addTodo() {
     todos.push(createData);
     console.log(todos);
  
+
     let close = document.getElementsByClassName(`closeBtn`);
+
        for (let i = 0; i < close.length; i++) { 
         close[i].onclick = function() {
             let parent = this.parentElement;
             parent.style.display = "none";
-            
-            todos.splice(todos[i], 1);
-            todos.length - 1;
-            console.log(todos);
-
-
             count--;
             updateCounter();
-          }    
+            deleteI();
+          } 
+
+          function deleteI() {
+            //find index of this item you click on
+            const thisObj = todos[i];
+            //onclick add property to object (deleted: true)
+            thisObj.deleted = true;
+            //filter deleted objects from array
+            todos = todos.filter((todo) => todo.deleted != true);
+
+            console.log(todos);
+        }
     }
 }
 
