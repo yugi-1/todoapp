@@ -8,7 +8,7 @@ function addTodo() {
     let inputValThree = document.getElementById('categoryValue').value;
     let create = document.createElement("LI"); 
     create.setAttribute( "class","list-group-item");
-    create.innerHTML = `<span class="inputvalone">${inputVal}</span> ` + `<span class="inputvalthree" >${inputValThree}<span class="inputvaltwo" contenteditable='true'>${inputValTwo}</span></span>` + ` <span class='closeBtn'>\u00D7</span>` + `<span class="editBtn">Edit</span>`;
+    create.innerHTML = `<span class="inputvalone">${inputVal}</span> ` + `<span class="inputvalthree" >${inputValThree}<span class="inputvaltwo" contenteditable='true'>${inputValTwo}</span></span>` + ` <span class='closeBtn'>\u00D7</span>` + `<span class="editBtn">Edit</span>` +`<span id="editField"></span>`;
 //  placement.style.display = 'inline';
     placement.appendChild(create);   
 
@@ -22,19 +22,42 @@ function addTodo() {
     console.log(todos);
  
 //edit todo
-    let editSelect = document.getElementsByClassName('editBtn');
+let editSelect = document.getElementsByClassName('editBtn');
     for (let i = 0; i < editSelect.length; i++ ) {
+        let placementTwo = document.getElementById('editField');
         editSelect[i].onclick = function() {
-            create.innerHTML = `<input type="text" id="editVal" class="form-control" value='${inputVal}' aria-label="Text input with dropdown button">` + `<input type="text" value='${inputValThree}' id="editValtwo" class="form-control" aria-label="Text input with dropdown button">` + `<input type="date" value='${inputValTwo}' id="editValthree" class="form-control" aria-label="Text input with dropdown button">` + `<button type="button" id="mainEdit" class="btn btn-primary">Submit</button>`;
-            let newVal = document.getElementById('editVal').value;
-            let newValtwo = document.getElementById('editValtwo').value;
-            let newValthree = document.getElementById('editValthree').value;
-            
-            let submitEdit = document.getElementById('mainEdit');
-            submitEdit.onclick = function() {
-            create.innerHTML = `<span class="inputvalone">${newVal}</span> ` + `<span class="inputvalthree" >${newValthree}<span class="inputvaltwo" contenteditable='true'>${newValtwo}</span></span>` + ` <span class='closeBtn'>\u00D7</span>` + `<span class="editBtn">Edit</span>`;
-            // placement.appendChild(create); 
-            }
+            // let newInput = document.createElement('input');
+            // newInput.setAttribute( "class","form-control");
+            // newInput.type = 'text';
+            // newInput.value = inputVal;
+
+            // let newInputCat = document.createElement('input');
+            // newInputCat.setAttribute( "class","form-control");
+            // newInputCat.type = 'text';
+            // newInputCat.value = inputValThree;
+
+            // let newInputDate = document.createElement('input');
+            // newInputDate.setAttribute( "class","form-control");
+            // newInputDate.type = 'date';
+            // newInputDate.value = inputValTwo;
+        
+            // let newBtn = document.createElement('button');
+            // newBtn.setAttribute( "class","btn btn-primary");
+            // newBtn.innerHTML = `Submit Edit`;
+            // newBtn.type = 'submit';
+           
+            // placementTwo.appendChild(newInput);
+            // placementTwo.appendChild(newInputCat);
+            // placementTwo.appendChild(newInputDate);
+            // placementTwo.appendChild(newBtn);
+
+            // let newTodo = newInput.value;
+            // let newCat = newInputCat.value;
+            // let newDate = newInputDate.value;
+
+            // newBtn.onclick = function() {
+            //  //replace old text with new text
+            // }
         } 
         
     }
