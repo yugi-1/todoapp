@@ -30,13 +30,21 @@ You have <span id="counting"></span> pending tasks
                    
                     <div class="input-group">
 
+
                         <input type="text" id="mainValue" class="form-control" placeholder="Enter to do" aria-label="Text input with dropdown button">
                         <div class="input-group-append">
                         
                       </div>
 
-                      
-                      <input type="text" id="categoryValue" placeholder="Category" class="form-control" aria-label="Text input with dropdown button">
+                      <label for="categories">Choose a Category:</label>
+
+                      <select name="categories" id="categoryValue">
+                        <option value="Education">Education</option>
+                        <option value="Shopping">Shopping</option>
+                        <option value="Finance">Finance</option>
+                      </select>
+
+                      <!-- <input type="text" id="categoryValue" placeholder="Category" class="form-control" aria-label="Text input with dropdown button"> -->
                       
                     <input type="date" value="2017-06-01" id="dateValue" />
                     

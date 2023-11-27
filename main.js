@@ -24,9 +24,12 @@ function addTodo() {
 //edit todo
 let editSelect = document.getElementsByClassName('editBtn');
 let placementTwo = document.getElementById('editField');
+
     for (let i = 0; i < editSelect.length; i++ ) {
-        editSelect[i].onclick = function() {
-            
+
+        editSelect[i].addEventListener('click', editTodo);
+        
+         function editTodo() {
             let newInput = document.createElement('input');
             newInput.setAttribute( "class","form-control");
             newInput.type = 'text';
@@ -52,16 +55,14 @@ let placementTwo = document.getElementById('editField');
             placementTwo.appendChild(newInputDate);
             placementTwo.appendChild(newBtn);
 
-           
-
             newBtn.onclick = function() {
-                let newTodo = newInput.value;
+            let newTodo = newInput.value;
             let newCat = newInputCat.value;
             let newDate = newInputDate.value;
+
+            create.innerHTML = `<span class="inputvalone">${newTodo}</span> ` + `<span class="inputvalthree" >${newDate}<span class="inputvaltwo" contenteditable='true'>${newCat}</span></span>` + ` <span class='closeBtn'>\u00D7</span>` + `<span class="editBtn">Edit</span>` +`<span id="editField"></span>`;
             
-                create.innerHTML = `<span class="inputvalone">${newTodo}</span> ` + `<span class="inputvalthree" >${newDate}<span class="inputvaltwo" contenteditable='true'>${newCat}</span></span>` + ` <span class='closeBtn'>\u00D7</span>` + `<span class="editBtn">Edit</span>` +`<span id="editField"></span>`;
-                placement.appendChild(create);   
-                placementTwo.style.display = 'none';
+            placement.appendChild(create);
             }
         } 
         
