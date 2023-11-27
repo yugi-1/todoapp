@@ -23,41 +23,46 @@ function addTodo() {
  
 //edit todo
 let editSelect = document.getElementsByClassName('editBtn');
+let placementTwo = document.getElementById('editField');
     for (let i = 0; i < editSelect.length; i++ ) {
-        let placementTwo = document.getElementById('editField');
         editSelect[i].onclick = function() {
-            // let newInput = document.createElement('input');
-            // newInput.setAttribute( "class","form-control");
-            // newInput.type = 'text';
-            // newInput.value = inputVal;
+            
+            let newInput = document.createElement('input');
+            newInput.setAttribute( "class","form-control");
+            newInput.type = 'text';
+            newInput.value = inputVal;
 
-            // let newInputCat = document.createElement('input');
-            // newInputCat.setAttribute( "class","form-control");
-            // newInputCat.type = 'text';
-            // newInputCat.value = inputValThree;
+            let newInputCat = document.createElement('input');
+            newInputCat.setAttribute( "class","form-control");
+            newInputCat.type = 'text';
+            newInputCat.value = inputValThree;
 
-            // let newInputDate = document.createElement('input');
-            // newInputDate.setAttribute( "class","form-control");
-            // newInputDate.type = 'date';
-            // newInputDate.value = inputValTwo;
+            let newInputDate = document.createElement('input');
+            newInputDate.setAttribute( "class","form-control");
+            newInputDate.type = 'date';
+            newInputDate.value = inputValTwo;
         
-            // let newBtn = document.createElement('button');
-            // newBtn.setAttribute( "class","btn btn-primary");
-            // newBtn.innerHTML = `Submit Edit`;
-            // newBtn.type = 'submit';
+            let newBtn = document.createElement('button');
+            newBtn.setAttribute( "class","btn btn-primary");
+            newBtn.innerHTML = `Submit Edit`;
+            newBtn.type = 'submit';
            
-            // placementTwo.appendChild(newInput);
-            // placementTwo.appendChild(newInputCat);
-            // placementTwo.appendChild(newInputDate);
-            // placementTwo.appendChild(newBtn);
+            placementTwo.appendChild(newInput);
+            placementTwo.appendChild(newInputCat);
+            placementTwo.appendChild(newInputDate);
+            placementTwo.appendChild(newBtn);
 
-            // let newTodo = newInput.value;
-            // let newCat = newInputCat.value;
-            // let newDate = newInputDate.value;
+           
 
-            // newBtn.onclick = function() {
-            //  //replace old text with new text
-            // }
+            newBtn.onclick = function() {
+                let newTodo = newInput.value;
+            let newCat = newInputCat.value;
+            let newDate = newInputDate.value;
+            
+                create.innerHTML = `<span class="inputvalone">${newTodo}</span> ` + `<span class="inputvalthree" >${newDate}<span class="inputvaltwo" contenteditable='true'>${newCat}</span></span>` + ` <span class='closeBtn'>\u00D7</span>` + `<span class="editBtn">Edit</span>` +`<span id="editField"></span>`;
+                placement.appendChild(create);   
+                placementTwo.style.display = 'none';
+            }
         } 
         
     }
