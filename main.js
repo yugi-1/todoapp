@@ -20,7 +20,6 @@ function addTodo() {
 
     todos.push(createData);
     console.log(todos);
- 
 
 //edit todo
 let editSelect = document.getElementsByClassName('editBtn');
@@ -67,13 +66,6 @@ let placementTwo = document.getElementById('editField');
             }
         }  
     } 
-
-    //beginning of filter func
-// let sortBtn = document.getElementById('filterB');
-// let filterSel = document.getElementById('categoryValueF');
-// sortBtn.onclick(sortTodos);
-// function sortTodos() {
-// }
 
     let close = document.getElementsByClassName(`closeBtn`);
 
@@ -150,6 +142,13 @@ editCatBtn.onclick = function() {
     let nOption = document.createElement('option');
     nOption.text = addCatI;
     categoryValue.add(nOption);
-    addCat.remove(addCat.selectedIndex);
     
+    addCat.remove(addCat.selectedIndex);
+}
+//beginning of filter func
+let sortBtn = document.getElementById('filterB');
+sortBtn.onclick = function() {
+    let addCatI = document.getElementById('addCat').value;
+    let inputValThree = document.getElementById('categoryValue').value;
+  
 }
