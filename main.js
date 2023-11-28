@@ -21,6 +21,7 @@ function addTodo() {
     todos.push(createData);
     console.log(todos);
  
+
 //edit todo
 let editSelect = document.getElementsByClassName('editBtn');
 let placementTwo = document.getElementById('editField');
@@ -28,7 +29,7 @@ let placementTwo = document.getElementById('editField');
     for (let i = 0; i < editSelect.length; i++ ) {
 
         editSelect[i].addEventListener('click', editTodo);
-        
+
          function editTodo() {
             let newInput = document.createElement('input');
             newInput.setAttribute( "class","form-control");
@@ -64,10 +65,19 @@ let placementTwo = document.getElementById('editField');
             
             placement.appendChild(create);
             }
-        } 
-        
+        }  
     }
- //end prototyping
+    
+
+    //beginning of filter func
+// let sortBtn = document.getElementById('filterB');
+// let filterSel = document.getElementById('categoryValueF');
+// sortBtn.onclick(sortTodos);
+
+// function sortTodos() {
+   
+// }
+
 
     let close = document.getElementsByClassName(`closeBtn`);
 
@@ -121,3 +131,15 @@ document.getElementById('mainCreate').addEventListener("click", () => {
     updateCounter();
     console.log(count);
 });
+
+// add new cat
+let addCat = document.getElementById('categoryValue');
+let addCatBtn = document.getElementById('addCatB');
+addCatBtn.onclick = function() {
+    let addCatI = document.getElementById('addCat').value;
+    let nOption = document.createElement('option');
+    nOption.text = addCatI;
+    categoryValue.add(nOption);
+    console.log(nOption);
+}
+//remove cat

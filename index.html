@@ -51,7 +51,25 @@ You have <span id="counting"></span> pending tasks
                   </div>
                 <button type="button" id="mainCreate" class="btn btn-primary">Create</button>
                 <button type="button" id="mainClear" class="btn btn-primary">Clear All To Do's</button>
+
+                <input type="text" id="addCat" class="form-control" placeholder="Enter new Category" aria-label="Text input with dropdown button">
+                <button type="button" id="addCatB" class="btn btn-primary">Add new Category</button>
+
+                <select name="categories" id="categoryValueD">
+                  <option value="Education">Education</option>
+                  <option value="Shopping">Shopping</option>
+                  <option value="Finance">Finance</option>
+                </select>
+                <button type="button" id="deleteCatB" class="btn btn-primary">Delete Category</button>
+
+                <select name="categories" id="categoryValueF">
+                  <option value="Education">Education</option>
+                  <option value="Shopping">Shopping</option>
+                  <option value="Finance">Finance</option>
+                </select>
                 
+                <button type="button" id="filterB" class="btn btn-primary">Filter</button>
+
                 <ul class="list-group" id="mainList"></ul>
             </div>
           </div>
