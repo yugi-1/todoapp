@@ -66,18 +66,14 @@ let placementTwo = document.getElementById('editField');
             placement.appendChild(create);
             }
         }  
-    }
-    
+    } 
 
     //beginning of filter func
 // let sortBtn = document.getElementById('filterB');
 // let filterSel = document.getElementById('categoryValueF');
 // sortBtn.onclick(sortTodos);
-
 // function sortTodos() {
-   
 // }
-
 
     let close = document.getElementsByClassName(`closeBtn`);
 
@@ -121,7 +117,6 @@ document.getElementById('mainCreate').addEventListener("click", addTodo);
 //counter
 
 let count = 0;
-
 function updateCounter() {
     document.getElementById('counting').innerHTML = count;
 };
@@ -147,4 +142,14 @@ addCatBtn.onclick = function() {
 let remCatBtn = document.getElementById('deleteCatB');
 remCatBtn.onclick = function() {
    addCat.remove(addCat.selectedIndex);
+}
+//update category
+let editCatBtn = document.getElementById('editCatB');
+editCatBtn.onclick = function() {
+    let addCatI = document.getElementById('addCat').value;
+    let nOption = document.createElement('option');
+    nOption.text = addCatI;
+    categoryValue.add(nOption);
+    addCat.remove(addCat.selectedIndex);
+    
 }
