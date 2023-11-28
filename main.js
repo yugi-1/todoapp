@@ -140,6 +140,11 @@ addCatBtn.onclick = function() {
     let nOption = document.createElement('option');
     nOption.text = addCatI;
     categoryValue.add(nOption);
+
     console.log(nOption);
 }
 //remove cat
+let remCatBtn = document.getElementById('deleteCatB');
+remCatBtn.onclick = function() {
+   addCat.remove(addCat.selectedIndex);
+}
