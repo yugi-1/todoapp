@@ -148,6 +148,7 @@ editCatBtn.onclick = function() {
     addCat.remove(addCat.selectedIndex);
 }
 
+let filBtn = document.getElementById('filterB');
 //beginning of filter func
 function sortFunc() {
     let d = placement.children;
@@ -155,6 +156,7 @@ function sortFunc() {
     for (let i = 0; i < todos.length; i++) {
         if (inputValThree !== todos[i].category) {
            d[i].classList.toggle('notShown');
-        } 
+           filBtn.innerText = `Reset Filter`
+        }
     }
 }
