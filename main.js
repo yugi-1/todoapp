@@ -25,6 +25,7 @@ function addTodo() {
 let editSelect = document.getElementsByClassName('editBtn');
 let placementTwo = document.getElementById('editField');
 
+
     for (let i = 0; i < editSelect.length; i++ ) {
 
         editSelect[i].addEventListener('click', editTodo);
@@ -67,6 +68,8 @@ let placementTwo = document.getElementById('editField');
         }  
     } 
 
+
+
     let close = document.getElementsByClassName(`closeBtn`);
 
        for (let i = 0; i < close.length; i++) { 
@@ -89,6 +92,7 @@ let placementTwo = document.getElementById('editField');
         }
     }
 }
+
 
 function clearAll() {
     count = 0;
@@ -144,11 +148,22 @@ editCatBtn.onclick = function() {
     categoryValue.add(nOption);
     
     addCat.remove(addCat.selectedIndex);
+    //put this filter func here
 }
+
 //beginning of filter func
 let sortBtn = document.getElementById('filterB');
 sortBtn.onclick = function() {
-    let addCatI = document.getElementById('addCat').value;
-    let inputValThree = document.getElementById('categoryValue').value;
-  
+    for (let i =0; i < todos.length; i++) {
+        let addCatI = document.getElementById('addCat').value;
+        let inputValThree = document.getElementById('categoryValue').value;
+
+        // console.log(todos[i].category);
+        if (inputValThree !== todos[i].category) {
+            console.log('chosen category does not match todo');
+            
+        }
+    }
+   
+
 }
