@@ -149,21 +149,12 @@ editCatBtn.onclick = function() {
 }
 
 //beginning of filter func
-let sortBtn = document.getElementById('filterB');
-// let theParent = document.getElementsByClassName()
-sortBtn.onclick = function() {
-    for (let i =0; i < todos.length; i++) {
-        let inputValThree = document.getElementById('categoryValue').value;
+function sortFunc() {
+    let d = placement.children;
+    let inputValThree = document.getElementById('categoryValue').value;
+    for (let i = 0; i < todos.length; i++) {
         if (inputValThree !== todos[i].category) {
-        //  console.log(todos[i].category); //need to make this dissapear from view when filtered
-           let d = placement.children;
-           d[i].setAttribute( "id","deleted");
-        } else {
-            console.log('this matches selected');
-        }
+           d[i].classList.toggle('notShown');
+        } 
     }
 }
-//  let thisObj = todos[i]; thisObj['deleted'] = true; 
-// //filter deleted objects from array
-// todos = todos.filter((todo) => todo.deleted != true);
-// console.log(todos);
