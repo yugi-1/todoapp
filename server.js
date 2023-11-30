@@ -6,6 +6,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('client'));
 
+
 app.listen(port, () => {
     console.log(`this is ${port}`);
 });
