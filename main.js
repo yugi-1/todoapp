@@ -93,7 +93,6 @@ let placementTwo = document.getElementById('editField');
     }
 }
 
-
 function clearAll() {
     count = 0;
     deleted.push(...todos);
@@ -131,7 +130,6 @@ addCatBtn.onclick = function() {
     let nOption = document.createElement('option');
     nOption.text = addCatI;
     categoryValue.add(nOption);
-
     console.log(nOption);
 }
 //remove cat
@@ -148,22 +146,24 @@ editCatBtn.onclick = function() {
     categoryValue.add(nOption);
     
     addCat.remove(addCat.selectedIndex);
-    //put this filter func here
 }
 
 //beginning of filter func
 let sortBtn = document.getElementById('filterB');
+// let theParent = document.getElementsByClassName()
 sortBtn.onclick = function() {
     for (let i =0; i < todos.length; i++) {
-        let addCatI = document.getElementById('addCat').value;
         let inputValThree = document.getElementById('categoryValue').value;
-
-        // console.log(todos[i].category);
         if (inputValThree !== todos[i].category) {
-            console.log('chosen category does not match todo');
-            
+        //  console.log(todos[i].category); //need to make this dissapear from view when filtered
+           let d = placement.children;
+           d[i].setAttribute( "id","deleted");
+        } else {
+            console.log('this matches selected');
         }
     }
-   
-
 }
+//  let thisObj = todos[i]; thisObj['deleted'] = true; 
+// //filter deleted objects from array
+// todos = todos.filter((todo) => todo.deleted != true);
+// console.log(todos);
