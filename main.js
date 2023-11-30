@@ -137,7 +137,7 @@ let remCatBtn = document.getElementById('deleteCatB');
 remCatBtn.onclick = function() {
    addCat.remove(addCat.selectedIndex);
 }
-//update category
+//edit category
 let editCatBtn = document.getElementById('editCatB');
 editCatBtn.onclick = function() {
     let addCatI = document.getElementById('addCat').value;
@@ -146,6 +146,8 @@ editCatBtn.onclick = function() {
     categoryValue.add(nOption);
     
     addCat.remove(addCat.selectedIndex);
+
+   updateCat();
 }
 
 let filBtn = document.getElementById('filterB');
