@@ -16,7 +16,20 @@ const createData = {
     category: 'category'
 }
 
+const createDataArr = [
+    {
+        name: 'todo',
+        date: 'date', 
+        category: 'category',
+        deleted: true
+    },
+    {
+        name: 'todo1',
+        date: 'date1', 
+        category: 'category1'
+    },
 
+]
 
 //get todos
 app.get('/api/todos', (req, res) => {
@@ -39,6 +52,11 @@ app.put('/api/edittodo', (req, res) => {
 
 //delete todo
 app.delete('/api/deletetodos', (req, res) => {
+    if ( createDataArr.deleted = true) {
+        createDataArr.shift();
+        todos.push(createDataArr);
+    }
+    // createDataArr = createDataArr.filter((item) => item.deleted != true);
     res.send(todos);
 });
 
