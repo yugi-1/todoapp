@@ -88,7 +88,10 @@ app.post('/api/postcat', (req, res) => {
 
 //edit category
 app.put('/api/putcat', (req, res) => {
-    res.send('put categories');
+    let newValCat = 'updated category';
+    createData.category = newValCat;
+    todos.push(createData);
+    res.send(todos);
 });
 
 //delete category
@@ -97,7 +100,6 @@ app.delete('/api/deletecat', (req, res) => {
         createDataArr.shift();
         todos.push(createDataArr);
     }
-   
     res.send(todos);
 });
 
