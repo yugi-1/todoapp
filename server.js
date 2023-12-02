@@ -6,12 +6,32 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('client'));
 
+
+let todos = [
+    {
+        id: 0,
+        todo: 'fdksjaf',
+        done: false
+    },
+    {
+        id: 1,
+        todo: 'fdksjafdflaksdf',
+        done: true
+    }
+]
+
 app.get('/api/todos', (req, res) => {
-    res.send('todos');
+    res.send(todos);
 });
 
-app.post('/api/posttodos', (req, res) => {
-    res.send('post todos');
+//add todo
+app.post('/api/todo', (req, res) => {
+    todos.push({
+        id: todos.length + 1,
+        todo: req.body.todo,
+        done: false
+    })
+    res.send(todos);
 });
 
 app.put('/api/puttodos', (req, res) => {
