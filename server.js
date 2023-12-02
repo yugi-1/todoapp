@@ -6,31 +6,22 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('client'));
 
+let todos=[];
 
-let todos = [
-    {
-        id: 0,
-        todo: 'fdksjaf',
-        done: false
-    },
-    {
-        id: 1,
-        todo: 'fdksjafdflaksdf',
-        done: true
-    }
-]
+const createData = {
+    name: 'todo',
+    date: 'date', 
+    category: 'category'
+}
 
+//get todos
 app.get('/api/todos', (req, res) => {
     res.send(todos);
 });
 
-//add todo
+//add/post todo
 app.post('/api/todo', (req, res) => {
-    todos.push({
-        id: todos.length + 1,
-        todo: req.body.todo,
-        done: false
-    })
+    todos.push(createData);
     res.send(todos);
 });
 
