@@ -93,7 +93,12 @@ app.put('/api/putcat', (req, res) => {
 
 //delete category
 app.delete('/api/deletecat', (req, res) => {
-    res.send('delete categories');
+    if ( createDataArr.category = 'category1') {
+        createDataArr.shift();
+        todos.push(createDataArr);
+    }
+   
+    res.send(todos);
 });
 
 
