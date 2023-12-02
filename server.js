@@ -2,17 +2,21 @@ const express = require ('express');
 const app = express();
 const port = 3000;
 const bodyParser = require('body-parser');
+const { create } = require('yallist');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('client'));
 
 let todos=[];
+const deleted =[];
 
 const createData = {
     name: 'todo',
     date: 'date', 
     category: 'category'
 }
+
+
 
 //get todos
 app.get('/api/todos', (req, res) => {
@@ -27,15 +31,21 @@ app.post('/api/todo', (req, res) => {
 
 //edit todo
 app.put('/api/edittodo', (req, res) => {
-    res.send('put todos');
+    let newVal = 'updated todo';
+    createData.name = newVal;
+    todos.push(createData);
+    res.send(todos);
 });
 
+//delete todo
 app.delete('/api/deletetodos', (req, res) => {
-    res.send('delete todos');
+    res.send(todos);
 });
 
+//get all todos for a category
 app.get('/api/todoscat', (req, res) => {
-    res.send('get all todos for category');
+
+    res.send(todos);
 });
 
 app.get('/api/categories', (req, res) => {
