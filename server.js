@@ -9,7 +9,7 @@ app.use(express.static('client'));
 
 let todos=[];
 const deleted =[];
-
+let categories = [];
 const createData = {
     name: 'todo',
     date: 'date', 
@@ -28,6 +28,11 @@ const createDataArr = [
         date: 'date1', 
         category: 'category1'
     },
+    {
+        name: 'todo2',
+        date: 'date2', 
+        category: 'category1'
+    }
 
 ]
 
@@ -60,24 +65,33 @@ app.delete('/api/deletetodos', (req, res) => {
     res.send(todos);
 });
 
-//get all todos for a category
+//get all todos for a category NOT DONE
 app.get('/api/todoscat', (req, res) => {
+    todos.push(createDataArr);
+    res.send(todos);
+});
+
+//get categories
+app.get('/api/categories', (req, res) => {
+    categories.push(createData.category);
+    res.send(categories);
+});
+
+//post/add categories
+app.post('/api/postcat', (req, res) => {
+    let newCate = 'education';
+    createData.category = newCate;
+    todos.push(createData);
 
     res.send(todos);
 });
 
-app.get('/api/categories', (req, res) => {
-    res.send('get categories');
-});
-
-app.post('/api/postcat', (req, res) => {
-    res.send('post categories');
-});
-
+//edit category
 app.put('/api/putcat', (req, res) => {
     res.send('put categories');
 });
 
+//delete category
 app.delete('/api/deletecat', (req, res) => {
     res.send('delete categories');
 });
