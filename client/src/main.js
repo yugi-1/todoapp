@@ -25,11 +25,9 @@ function addTodo() {
 let editSelect = document.getElementsByClassName('editBtn');
 let placementTwo = document.getElementById('editField');
 
-
     for (let i = 0; i < editSelect.length; i++ ) {
 
         editSelect[i].addEventListener('click', editTodo);
-
          function editTodo() {
             let newInput = document.createElement('input');
             newInput.setAttribute( "class","form-control");
@@ -55,11 +53,19 @@ let placementTwo = document.getElementById('editField');
             placementTwo.appendChild(newInputCat);
             placementTwo.appendChild(newInputDate);
             placementTwo.appendChild(newBtn);
+//dom form end
 
             newBtn.onclick = function() {
             let newTodo = newInput.value;
             let newCat = newInputCat.value;
             let newDate = newInputDate.value;
+
+            todos[i].name = newTodo;
+            todos[i].date = newDate;
+            todos[i].category = newCat;
+
+
+            console.log(todos);
 
             create.innerHTML = `<span class="inputvalone">${newTodo}</span> ` + `<span class="inputvalthree" >${newDate}<span class="inputvaltwo" contenteditable='true'>${newCat}</span></span>` + ` <span class='closeBtn'>\u00D7</span>` + `<span class="editBtn">Edit</span>` +`<span id="editField"></span>`;
             

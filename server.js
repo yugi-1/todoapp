@@ -25,7 +25,8 @@ app.post('/api/todo', (req, res) => {
     res.send(todos);
 });
 
-app.put('/api/puttodos', (req, res) => {
+//edit todo
+app.put('/api/edittodo', (req, res) => {
     res.send('put todos');
 });
 
