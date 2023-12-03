@@ -106,15 +106,33 @@ let placementTwo = document.getElementById('editField');
             updateCounter();
             deleteI();
           } 
-          
-          let thisObj = todos[i];
+        //start backend
+        //   let thisObj = todos[i];
 
           function deleteI() {
             //onclick add property to object (deleted: true)
-            thisObj['deleted'] = true;
+            // thisObj['deleted'] = true;
             //filter deleted objects from array
-            todos = todos.filter((todo) => todo.deleted != true);
-            console.log(todos);
+
+            // todos = todos.filter((todo) => todo.deleted != true);
+            // console.log(todos);
+
+            fetch("/api/deletetodos", {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json;charset=utf-8",
+                },
+                body: JSON.stringify({
+                    name: inputVal,
+                    date: inputValTwo, 
+                    category: inputValThree,
+                    index: i
+                })
+            })
+                .then((res) => res.json())
+                .then((data) => console.log(data));
+
+        //end backend
         }
     }
 }

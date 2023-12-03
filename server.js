@@ -25,7 +25,7 @@ app.post('/api/todo', (req, res) => {
     res.send(todos);
 });
 
-//edit todo CURRENTLY WIP
+//edit todo
 app.put('/api/edittodo', (req, res) => {
     todos[Number(req.body.index)].name = req.body.name;
     todos[Number(req.body.index)].date = req.body.date;
@@ -36,10 +36,9 @@ app.put('/api/edittodo', (req, res) => {
 
 //delete todo
 app.delete('/api/deletetodos', (req, res) => {
-    if ( todos.deleted = true) {
-        createDataArr.shift();
-        todos.push(createDataArr);
-    }
+    let thisObj = todos[Number(req.body.index)];
+       thisObj['deleted'] = true;
+       todos = todos.filter((todo) => todo.deleted != true);
     // createDataArr = createDataArr.filter((item) => item.deleted != true);
     res.send(todos);
 });
