@@ -2,38 +2,12 @@ const express = require ('express');
 const app = express();
 const port = 3000;
 const bodyParser = require('body-parser');
+const { query } = require('express');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('client'));
 
-let todos=[];
-const deleted =[];
-let categories = [];
-const createData = {
-    name: 'todo',
-    date: 'date', 
-    category: 'category'
-}
-
-const createDataArr = [
-    {
-        name: 'todo',
-        date: 'date', 
-        category: 'category',
-        deleted: true
-    },
-    {
-        name: 'todo1',
-        date: 'date1', 
-        category: 'category1'
-    },
-    {
-        name: 'todo2',
-        date: 'date2', 
-        category: 'category1'
-    }
-
-]
+let todos =[];
 
 //get todos
 app.get('/api/todos', (req, res) => {
@@ -42,7 +16,12 @@ app.get('/api/todos', (req, res) => {
 
 //add/post todo
 app.post('/api/todo', (req, res) => {
-    todos.push(createData);
+    todos.push({
+        name: req.body.name,
+        date: req.body.date,
+        category: req.body.category,
+    });
+    // todos.push(createData);
     res.send(todos);
 });
 

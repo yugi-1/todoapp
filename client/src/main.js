@@ -1,7 +1,9 @@
+let baseURL = 'http://localhost:3000/';
+//fetch(baseURL + '/api/todos')
 let todos=[];
 const deleted =[];
-let placement = document.getElementById('mainList');
 
+let placement = document.getElementById('mainList');
 function addTodo() {
     let inputVal = document.getElementById('mainValue').value;
     let inputValTwo = document.getElementById('dateValue').value;
@@ -12,14 +14,27 @@ function addTodo() {
 //  placement.style.display = 'inline';
     placement.appendChild(create);   
 
-    const createData = {
-        name: inputVal,
-        date: inputValTwo, 
-        category: inputValThree
-    }
+    // const createData = {
+    //     name: inputVal,
+    //     date: inputValTwo, 
+    //     category: inputValThree
+    // }
+    fetch("/api/todo", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json;charset=utf-8",
+        },
+        body: JSON.stringify({
+            name: inputVal,
+            date: inputValTwo, 
+            category: inputValThree,
+        })
+    })
+        .then((res) => res.json())
+        .then((data) => console.log(data));
 
-    todos.push(createData);
-    console.log(todos);
+    // todos.push(createData);
+    // console.log(todos);
 
 //edit todo
 let editSelect = document.getElementsByClassName('editBtn');
