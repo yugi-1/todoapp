@@ -41,7 +41,6 @@ let editSelect = document.getElementsByClassName('editBtn');
 let placementTwo = document.getElementById('editField');
 
     for (let i = 0; i < editSelect.length; i++ ) {
-
         editSelect[i].addEventListener('click', editTodo);
          function editTodo() {
             let newInput = document.createElement('input');
@@ -75,21 +74,27 @@ let placementTwo = document.getElementById('editField');
             let newCat = newInputCat.value;
             let newDate = newInputDate.value;
 
-            todos[i].name = newTodo;
-            todos[i].date = newDate;
-            todos[i].category = newCat;
+            fetch("/api/edittodo", {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json;charset=utf-8",
+                },
+                body: JSON.stringify({
+                    name: newTodo,
+                    date: newDate, 
+                    category: newCat,
+                    index: i
+                })
+            })
+                .then((res) => res.json())
+                .then((data) => console.log(data));
 
-
-            console.log(todos);
 
             create.innerHTML = `<span class="inputvalone">${newTodo}</span> ` + `<span class="inputvalthree" >${newDate}<span class="inputvaltwo" contenteditable='true'>${newCat}</span></span>` + ` <span class='closeBtn'>\u00D7</span>` + `<span class="editBtn">Edit</span>` +`<span id="editField"></span>`;
-            
             placement.appendChild(create);
             }
         }  
     } 
-
-
 
     let close = document.getElementsByClassName(`closeBtn`);
 
